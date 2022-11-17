@@ -7,9 +7,9 @@ import java.awt.*;
 
 public class SingleAlarmPanel extends JPanel {
 
-    private JTextField textFieldRingAt;
+    private JLabel textFieldRingAt;
 
-    private JTextField textFieldRemain;
+    private JLabel textFieldRemain;
 
     private JCheckBox checkBoxSwitch;
 
@@ -20,12 +20,15 @@ public class SingleAlarmPanel extends JPanel {
     public SingleAlarmPanel(Time timeToRingAt, Time timeRemain) {
         this.timeToRingAt = timeToRingAt;
         this.timeRemain = timeRemain;
-        textFieldRingAt = new JTextField(timeToRingAt.getHour() + ":" + timeToRingAt.getMinute());
-        textFieldRemain = new JTextField(timeRemain.getHour() + ":" + timeRemain.getMinute());
+        textFieldRingAt = new JLabel(timeToRingAt.getHour() + ":" + timeToRingAt.getMinute());
+        textFieldRemain = new JLabel(timeRemain.getHour() + ":" + timeRemain.getMinute());
         checkBoxSwitch = new JCheckBox("Enable");
 
         textFieldRingAt.setMaximumSize(new Dimension(100, 20));
+        textFieldRingAt.setHorizontalAlignment(SwingConstants.CENTER);
+
         textFieldRemain.setMaximumSize(new Dimension(100, 20));
+        textFieldRemain.setHorizontalAlignment(SwingConstants.CENTER);
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
